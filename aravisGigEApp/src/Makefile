@@ -42,7 +42,7 @@ else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
 	USR_INCLUDES_Linux += -I$(TOP)/vendor/aravis-linux-x86/include/aravis-0.4
 endif
 
-USR_LIBS += glib-2.0
+USR_SYS_LIBS += glib-2.0
 
 # TODO: should pick this up from the vendor directory
 USR_LIBS += aravis-0.4
