@@ -800,7 +800,7 @@ void aravisCamera::run() {
     epicsTimeGetCurrent(&lastFeatureGet);
     while (1) {
         /* Wait 5ms for an array to arrive from the queue */
-        if (epicsMessageQueueReceiveWithTimeout(this->msgQId, &buffer, sizeof(&buffer), 0.005) == -1) {
+        if (epicsMessageQueueTryReceive(this->msgQId, &buffer, sizeof(&buffer)) == -1) {
             /* No array, so if there is a camera, get the next feature*/
             if (this->camera != NULL && this->connectionValid == 1) {
                 /* We only want to get a feature once every 25ms (max 40 features/s)
